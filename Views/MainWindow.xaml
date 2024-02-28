@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client"
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:prism="http://prismlibrary.com/"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
@@ -16,7 +17,7 @@
             <TextBlock Text="CIS3.0" FontSize="30" Foreground="White"/>
             <TreeView x:Name="treeView" ItemsSource="{Binding MenuBars}" BorderBrush="Transparent" VerticalContentAlignment="Center">
                 <i:Interaction.Triggers>
-                    <i:EventTrigger>
+                    <i:EventTrigger EventName="SelectedItemChanged">
                         <i:InvokeCommandAction Command="{Binding NavigateCommand}" CommandParameter="{Binding ElementName=treeView,Path=SelectedItem}"/>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
@@ -27,6 +28,8 @@
                 </TreeView.ItemTemplate>                
             </TreeView>
         </StackPanel>
+
+        <ContentControl Grid.Column="1" prism:RegionManager.RegionName="MainRegion"/>
 
     </Grid>
 </Window>

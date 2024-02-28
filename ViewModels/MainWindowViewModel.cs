@@ -84,7 +84,7 @@ namespace Client.ViewModels
             {
                 MenuBar menu = bar as MenuBar;  
                 if(menu.MenuPath != null)
-                    _regionManager?.RequestNavigate("MainRegion",menu.MenuPath);
+                    _regionManager?.RequestNavigate("MainRegion", menu.MenuPath);
             }
         }
 
